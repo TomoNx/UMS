@@ -90,7 +90,7 @@ $navbarDetached = ($navbarDetached ?? '');
                           John Doe
                         @endif
                       </h6>
-                      <small class="text-muted">User</small>
+                      <small class="text-muted">{{Auth::user()->role ?? 'User'}}</small>
                     </div>
                   </div>
                 </a>
