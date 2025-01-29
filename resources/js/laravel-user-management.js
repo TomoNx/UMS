@@ -385,9 +385,9 @@ $(function () {
         // delete the data
         $.ajax({
           type: 'DELETE',
-          url: `${baseUrl}user-list/${user_id}`,
+          url: `${baseUrl}user-delete/${user_id}`,
           success: function () {
-            dt_user.draw();
+            dt_user.ajax.reload();
           },
           error: function (error) {
             console.log(error);

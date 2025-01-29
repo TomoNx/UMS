@@ -15,6 +15,8 @@ Route::middleware(['auth'])->group(function () {
     //UserManagement
     Route::get('/user-management', [UserManagement::class, 'UserManagement'])->name('content.user.User-management');
     Route::get('/user-list', [UserManagement::class, 'index'])->name('user-list');
+    Route::get('/user-edit/{id}', [UserManagement::class, 'edit'])->name('user-edit');
+    Route::delete('/user-delete/{id}', [UserManagement::class, 'destroy'])->name('user-delete');
 });
 
 // locale

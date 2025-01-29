@@ -206,6 +206,18 @@ class UserManagement extends Controller
    */
   public function destroy($id)
   {
-    $users = User::where('id', $id)->delete();
+    try {
+      User::destroy($id);
+      return response()->json([
+        'message' => 'User deleted successfully',
+        'code' => 200
+      ]);
+    } catch (\Exception $e) {
+      return response()->json([
+        'message' => 'Failed to delete user',
+        'code' => 500,
+        'error' => $e->getMessage()
+      ], 500);
+    }
   }
 }

@@ -1,23 +1,34 @@
 {
   "menu": [
     {
-      "url": "/",
       "name": "Home",
       "icon": "menu-icon tf-icons ti ti-smart-home",
-      "slug": "pages-home"
+      "slug": "pages-home",
+      "submenu": [
+        {
+          "url": "/",
+          "name": "Home",
+          "slug": "pages-home-1"
+        },
+        {
+          "url": "page-2",
+          "name": "Page 2",
+          "slug": "pages-home-2"
+        }
+      ]
     },
     {
-      "url": "page-2",
-      "icon": "menu-icon tf-icons ti ti-file",
-      "name": "Page 2",
-      "slug": "pages-page-2"
-    },
-    {
-      "url": "pages/misc-error",
-      "name": "Error",
-      "icon": "menu-icon tf-icons ti ti-alert-triangle",
-      "slug": "pages-misc-error",
-      "target": "_blank"
+      "name": "Users",
+      "icon": "menu-icon tf-icons ti ti-users",
+      "slug": "User",
+      "submenu": [
+        {
+          "url": "/user-management",
+          "name": "User Management",
+          "icon": "menu-icon tf-icons ti ti-users",
+          "slug": "User-management"
+        }
+      ]
     }
   ]
 }
