@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -41,9 +40,10 @@ class UserManagement extends Controller
   {
     $columns = [
       1 => 'id',
-      2 => 'name',
-      3 => 'email',
-      4 => 'email_verified_at',
+      2 => 'role',
+      3 => 'name',
+      4 => 'email',
+      5 => 'email_verified_at',
     ];
 
     $search = [];
@@ -67,6 +67,7 @@ class UserManagement extends Controller
 
       $users = User::where('id', 'LIKE', "%{$search}%")
         ->orWhere('name', 'LIKE', "%{$search}%")
+        ->orWhere('role', 'LIKE', "%{$search}")
         ->orWhere('email', 'LIKE', "%{$search}%")
         ->offset($start)
         ->limit($limit)
@@ -75,6 +76,7 @@ class UserManagement extends Controller
 
       $totalFiltered = User::where('id', 'LIKE', "%{$search}%")
         ->orWhere('name', 'LIKE', "%{$search}%")
+        ->orWhere('role', 'LIKE', "%{$search}")
         ->orWhere('email', 'LIKE', "%{$search}%")
         ->count();
     }
@@ -89,6 +91,7 @@ class UserManagement extends Controller
         $nestedData['id'] = $user->id;
         $nestedData['fake_id'] = ++$ids;
         $nestedData['name'] = $user->name;
+        $nestedData['role'] = $user->role;
         $nestedData['email'] = $user->email;
         $nestedData['email_verified_at'] = $user->email_verified_at;
 
